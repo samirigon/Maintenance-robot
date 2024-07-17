@@ -262,7 +262,7 @@ function Map_area()
     end
 
     local function advance_till_wall()
-        while not robot.detect do
+        while not robot.detect() do
             robot.forward()
             add_safe()
             for i=0,3 do
