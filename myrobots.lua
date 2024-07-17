@@ -286,17 +286,17 @@ function Map_area()
         local axis
 
         if facing == "east" then
-            maxomin = math.max
+            maxomin = Max
             axis = 1
         elseif facing == "west" then
             axis = 1
-            maxomin = math.min
+            maxomin = Min
         elseif facing == "north" then
             axis = 3
-            maxomin = math.min
+            maxomin = Min
         elseif facing == "south" then
             axis = 3
-            maxomin = math.max
+            maxomin = Max
         end
 
         Refill_robot()
@@ -307,10 +307,13 @@ function Map_area()
 
         --queremos añadir las posiciones de la siguiente fila a next_row
         local axis_values = {}
+        --primero metemos todos los valores del eje
         for i,j in pairs(missing_positions) do
             table.insert(axis_values,j[axis])
         end
+        --calculamos el valor del extremo
         local row_value = maxomin(axis_values)
+        --y metemos todos los bloques que ha de recorrer en la lista.
         for i,j in pairs(missing_positions) do
             if j[axis] == row_value then
                 table.insert(next_row,j)
@@ -335,8 +338,8 @@ function Map_area()
             table.insert(otheraxis_values,j[otheraxis])
         end
         local column_values =  {}
-        table.insert(column_values,math.max(otheraxis_values))
-        table.insert(column_values,math.min(otheraxis_values))
+        table.insert(column_values,Max(otheraxis_values))
+        table.insert(column_values,Min(otheraxis_values))
         --calculo los extremos para ver cuál está más cerca
         local extremes = {}
         for i=1,3 do

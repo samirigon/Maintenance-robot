@@ -53,3 +53,23 @@ function Reverse(tab)
     end
     return tab
 end
+
+function Max(t)
+    local max = t[1]
+    for index,item in pairs(t) do
+        if item > max then
+            max = item
+        end
+    end
+    return max
+end
+
+function Min(t)
+    local min = t[1]
+    for index,item in pairs(t) do
+        if item > min then
+            min = item
+        end
+    end
+    return min
+end
