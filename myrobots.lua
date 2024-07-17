@@ -216,9 +216,9 @@ function Map_area()
     --maps an area and saves it in memory in order to find the best path
     --to go from one point to another
     --uses depth first search
-    local valid_positions = table()
-    local missing_positions = table()
-    local walls = table()
+    local valid_positions = {}
+    local missing_positions = {}
+    local walls = {}
     local y = Relative_position[2]
 
     local function pos_in_front()
@@ -301,10 +301,10 @@ function Map_area()
         --queremos que el robot recorra todo el espacio de la base
         --desplazándose en un eje, x o z.
         --el eje va a ser hacia el que esté mirando cuando está en la base.
-        local next_row = table() --aquí almacenaremos las casillas de la siguiente fila.
+        local next_row = {} --aquí almacenaremos las casillas de la siguiente fila.
 
         --queremos añadir las posiciones de la siguiente fila a next_row
-        local axis_values = table()
+        local axis_values = {}
         for i,j in pairs(missing_positions) do
             table.insert(axis_values,j[axis])
         end
@@ -328,15 +328,15 @@ function Map_area()
             otheraxis = 1
         end
 
-        local otheraxis_values = table()
+        local otheraxis_values = {}
         for i,j in pairs(next_row) do
             table.insert(otheraxis_values,j[otheraxis])
         end
-        local column_values =  table()
+        local column_values =  {}
         table.insert(column_values,math.max(otheraxis_values))
         table.insert(column_values,math.min(otheraxis_values))
         --calculo los extremos para ver cuál está más cerca
-        local extremes = table()
+        local extremes = {}
         for i=1,3 do
             local extreme = {0,y,0}
             extreme[axis] = row_value
