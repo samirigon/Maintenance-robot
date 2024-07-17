@@ -365,5 +365,7 @@ end
 Directions_dictionary = {["east"] = 1,["south"] = 2,["west"] = 3,["north"] = 4}
 Directions = {"east", "south", "west", "north"}
 Relative_position = {0,0,0}
+Facing = "west"
+Relative_position = {-9,69,-499}
 
 Map_area()
