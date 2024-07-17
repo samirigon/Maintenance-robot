@@ -4,7 +4,7 @@
 
 local robot = require("robot")
 local fs = require("filesystem")
-require("missing_functions.lua")
+require("missing_functions")
 PriorityQueue = require("PriorityQueue")
 
 
