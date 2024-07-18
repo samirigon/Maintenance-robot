@@ -36,6 +36,7 @@ end
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
     if #v1 ~= #v2 then
+        print(v1,v2)
         error("Vectors must have the same size!")
     end
     local vector = {}
