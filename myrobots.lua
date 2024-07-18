@@ -61,13 +61,13 @@ end
 function Calculate_closest_block(blocks)
     --given a list of blocks returns the closest one
     --to Relative_position
-    local moduli = table()
+    local moduli = {}
     for i,block in pairs(blocks) do
         local modulus = Modulus(Vector_difference(block,Relative_position))
         table.insert(moduli,modulus)
     end
 
-    local min = math.min(moduli)
+    local min = Min(moduli)
     local index = Index(min,moduli)
 
     return blocks[index]
@@ -132,13 +132,13 @@ function Calculate_path(pos,valid_positions,walls)
     --to go from Relative_position to pos
     --and moves the robot.
     --uses A* Algorithm
-    local path = table()
+    local path = {}
     local turn_cost = 1
     local move_cost = 1
     local frontier = PriorityQueue.new()
     frontier.put(Relative_position, 0)
-    local came_from = table()
-    local cost_so_far = table()
+    local came_from = {}
+    local cost_so_far = {}
     came_from[Relative_position] = nil
     cost_so_far[Relative_position] = 0
 
