@@ -276,11 +276,11 @@ function Map_area()
         end
     end
 
-    table.insert(missing_positions,pos_in_front())
+    advance_till_wall()
     
     while #missing_positions ~= 0 do
         local facing = Facing --registramos la dirección en la que mira.
-        advance_till_wall()
+        
 
         local maxomin
         local axis

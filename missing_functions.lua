@@ -35,11 +35,11 @@ end
 
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
-    if v1.size ~= v2.size then
+    if #v1 ~= #v2 then
         error("Vectors must have the same size!")
     end
     local vector = {}
-    for i=1,v1.size do
+    for i=1,#v1 do
         table.insert(vector,i,v1[i]-v2[i])
     end
 
