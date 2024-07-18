@@ -38,7 +38,7 @@ function Vector_difference(v1,v2)
     if v1.size ~= v2.size then
         error("Vectors must have the same size!")
     end
-    local vector = table()
+    local vector = {}
     for i=1,v1.size do
         table.insert(vector,i,v1[i]-v2[i])
     end
