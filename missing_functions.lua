@@ -40,7 +40,6 @@ function Vector_difference(v1,v2)
     end
     local vector = {}
     print(#v1)
-    error("uwu")
     for i=1,#v1 do
         table.insert(vector,i,v1[i]-v2[i])
     end
