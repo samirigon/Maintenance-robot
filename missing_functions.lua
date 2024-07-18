@@ -40,6 +40,7 @@ function Vector_difference(v1,v2)
     end
     local vector = {}
     print(#v1)
+    error("uwu")
     for i=1,#v1 do
         table.insert(vector,i,v1[i]-v2[i])
     end
@@ -48,11 +49,11 @@ function Vector_difference(v1,v2)
 end
 
 
-function Reverse(tab)
-    for i = 1, #tab//2, 1 do
-        tab[i], tab[#tab-i+1] = tab[#tab-i+1], tab[i]
+function Reverse(t)
+    for i = 1, #t//2, 1 do
+        t[i], t[#t-i+1] = t[#t-i+1], t[i]
     end
-    return tab
+    return t
 end
 
 function Max(t)
