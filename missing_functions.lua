@@ -44,6 +44,7 @@ end
 
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
+    print("uwu")
     if Size(v1) ~= Size(v2) then
         print(Size(v1),Size(v2))
         for i,j in v1 do
