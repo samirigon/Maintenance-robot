@@ -136,7 +136,7 @@ function Calculate_path(pos,valid_positions,walls)
     local turn_cost = 1
     local move_cost = 1
     local frontier = PriorityQueue.new()
-    frontier.put(Relative_position, 0)
+    frontier:enqueue(Relative_position, 0)
     local came_from = {}
     local cost_so_far = {}
     came_from[Relative_position] = nil
