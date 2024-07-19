@@ -45,6 +45,14 @@ end
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
     if Size(v1) ~= Size(v2) then
+        print(Size(v1),Size(v2))
+        for i,j in v1 do
+            print(i,j)
+        end
+        print(v2,":")
+        for i,j in v2 do
+            print(i,j)
+        end
         error("Vectors must have the same size!")
     end
     local vector = {}
