@@ -342,11 +342,10 @@ function Map_area()
         table.insert(column_values,Min(otheraxis_values))
         --calculo los extremos para ver cuál está más cerca
         local extremes = {}
-        for i=1,3 do
+        for i=1,2 do
             local extreme = {0,y,0}
             extreme[axis] = row_value
             extreme[otheraxis] = column_values[i]
-            print(Size(extreme))
             table.insert(extremes,extreme)
         end
 
