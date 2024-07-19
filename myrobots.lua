@@ -191,7 +191,7 @@ function Calculate_path(pos,valid_positions,walls)
 
     local current
     local dummy
-    while not frontier:empty() do
+    while frontier:len() ~= 0 do
         current,dummy = frontier:dequeue()
         if current == pos then
              break
