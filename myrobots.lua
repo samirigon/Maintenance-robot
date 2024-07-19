@@ -346,6 +346,7 @@ function Map_area()
             local extreme = {0,y,0}
             extreme[axis] = row_value
             extreme[otheraxis] = column_values[i]
+            print(extreme)
             table.insert(extremes,extreme)
         end
 
