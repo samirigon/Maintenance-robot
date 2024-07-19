@@ -33,14 +33,22 @@ function Modulus(v)
     return modulus
 end
 
+function Size(t)
+    --returns the size of the table t
+    local count = 0
+    for i,j in pairs(t) do
+        count = count + 1
+    end
+    return count
+end
+
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
-    if #v1 ~= #v2 then
-        print(#v1,#v2)
+    if Size(v1) ~= Size(v2) then
         error("Vectors must have the same size!")
     end
     local vector = {}
-    for i=1,#v1 do
+    for i=1,Size(v1) do
         table.insert(vector,i,v1[i]-v2[i])
     end
 
@@ -49,8 +57,8 @@ end
 
 
 function Reverse(t)
-    for i = 1, #t//2, 1 do
-        t[i], t[#t-i+1] = t[#t-i+1], t[i]
+    for i = 1, Size(t)//2, 1 do
+        t[i], t[Size(t)-i+1] = t[Size(t)-i+1], t[i]
     end
     return t
 end

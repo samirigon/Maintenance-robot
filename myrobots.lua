@@ -278,7 +278,7 @@ function Map_area()
 
     advance_till_wall()
     
-    while #missing_positions ~= 0 do
+    while Size(missing_positions) ~= 0 do
         local facing = Facing --registramos la dirección en la que mira.
         
 
