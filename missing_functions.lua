@@ -44,7 +44,6 @@ end
 
 function Vector_difference(v1,v2)
     --given two vectors, returns the difference
-    print("uwu")
     if Size(v1) ~= Size(v2) then
         error("Vectors must have the same size!")
     end
