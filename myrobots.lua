@@ -306,6 +306,8 @@ function Map_area()
         --queremos que el robot recorra todo el espacio de la base
         --desplazándose en un eje, x o z.
         --el eje va a ser hacia el que esté mirando cuando está en la base.
+
+
         local next_row = {} --aquí almacenaremos las casillas de la siguiente fila.
 
         --queremos añadir las posiciones de la siguiente fila a next_row
@@ -354,13 +356,15 @@ function Map_area()
 
         local position = Calculate_closest_block(extremes)
         local positions = TableConcat(valid_positions,missing_positions)
-        local path = Calculate_path(position,positions,walls) --devuelve todas las
+        --[[local path = Calculate_path(position,positions,walls) --devuelve todas las
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
             print(block[1],block[2],block[3])
             assert(In(block,positions),"Unknown block!")
             Travel_to(block)
         end
+        ]]--
+        Travel_to(position)
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
     end
