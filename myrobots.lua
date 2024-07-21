@@ -354,7 +354,7 @@ function Map_area()
 
         local path = Calculate_path(position,valid_positions,walls) --devuelve todas las
         --posiciones a las que hemos de ir para llegar al objetivo
-        for block in path do
+        for dummy,block in pairs(path) do
             Travel_to(block)
         end
         --ya hemos viajado al primer bloque de la siguiente fila.
