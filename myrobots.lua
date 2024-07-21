@@ -356,6 +356,7 @@ function Map_area()
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
             print(block[1],block[2],block[3])
+            assert(In(block,valid_positions),"Unknown block!")
             Travel_to(block)
         end
         --ya hemos viajado al primer bloque de la siguiente fila.
