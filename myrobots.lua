@@ -144,7 +144,7 @@ function Calculate_path(pos,valid_positions,walls)
 
     local function heuristic(a, b)
         -- Manhattan distance on a square grid
-        print(a,b)
+        assert(type(a) == "table" or type(b) == "table", "Must be coordinates tables!")
         return math.abs(a[1] - b[1]) + math.abs(a[3] - b[3])
     end
 
