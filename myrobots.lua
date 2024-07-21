@@ -364,11 +364,12 @@ function Map_area()
             Travel_to(block)
         end
         ]]--
-        Travel_to(position)
+        --Travel_to(position)
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
 
-        missing_positions = {}
+        print(position[1],position[2],position[3])
+        break
     end
 end
 
