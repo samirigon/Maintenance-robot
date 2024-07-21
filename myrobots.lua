@@ -268,7 +268,7 @@ function Map_area()
         while not robot.detect() do
             robot.forward()
             add_safe()
-            for i=0,3 do
+            for i=0,4 do
                 TurnDirection("left")
                 if robot.detect() then
                     add_wall()
