@@ -58,6 +58,21 @@ function TurnDirection(direction)
     Facing = Directions[final_direction]
 end
 
+function Move_forward(number_of_blocks)
+    for i = 1,number_of_blocks do
+        robot.forward()
+        if Facing == "east" then
+            Relative_position[1] = Relative_position[1] + 1
+        elseif Facing == "west" then
+            Relative_position[1] = Relative_position[1] - 1
+        elseif Facing == "south " then
+            Relative_position[3] = Relative_position[3] + 1
+        elseif Facing == "north" then
+            Relative_position[3] = Relative_position[3] - 1
+        end
+    end
+end
+
 function Calculate_closest_block(blocks)
     --given a list of blocks returns the closest one
     --to Relative_position
@@ -76,29 +91,15 @@ end
 function Travel_to(block)
     --travels to given block in a straight line
 
-    local function move_forward(number_of_blocks)
-        for i = 1,number_of_blocks do
-            robot.forward()
-            if Facing == "east" then
-                Relative_position[1] = Relative_position[1] + 1
-            elseif Facing == "west" then
-                Relative_position[1] = Relative_position[1] - 1
-            elseif Facing == "south " then
-                Relative_position[3] = Relative_position[3] + 1
-            elseif Facing == "north" then
-                Relative_position[3] = Relative_position[3] - 1
-            end
-        end
-    end
     local function go_to_relative_position(start_position,final_position)
         local previously_facing = Facing
         local x_difference = final_position[1] - start_position[1]
         if x_difference < 0 then
             TurnDirection("west")
-            move_forward(math.abs(x_difference))
+            Move_forward(math.abs(x_difference))
         else
             TurnDirection("east")
-            move_forward(x_difference)
+            Move_forward(x_difference)
         end
 
         local y_difference = final_position[2] - start_position[2]
@@ -115,10 +116,10 @@ function Travel_to(block)
         local z_difference = final_position[3] - start_position[3]
         if z_difference < 0 then
             TurnDirection("north")
-            move_forward(math.abs(z_difference))
+            Move_forward(math.abs(z_difference))
         else
             TurnDirection("south") --para el eje z positivo
-            move_forward(z_difference)
+            Move_forward(z_difference)
         end
         TurnDirection(previously_facing)
     end
@@ -266,7 +267,7 @@ function Map_area()
 
     local function advance_till_wall()
         while not robot.detect() do
-            robot.forward()
+            Move_forward(1)
             print("going forward!")
             add_safe()
             for i=0,3 do
