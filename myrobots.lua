@@ -369,6 +369,12 @@ function Map_area()
         --ya puede empezar el bucle de nuevo.
 
         print(position[1],position[2],position[3])
+
+        print("positions list!")
+
+        for i,j in pairs(positions) do
+            print(j[1],j[2],j[3])
+        end
         break
     end
 end
