@@ -203,7 +203,7 @@ function Calculate_path(pos,valid_positions,walls)
         if not In(next,cost_so_far) or new_cost < cost_so_far[next] then
             cost_so_far[next] = new_cost
             local priority = new_cost + heuristic(pos, next)
-            frontier.put(next, priority)
+            frontier:enqueue(next, priority)
             came_from[next] = current
         end
     end
