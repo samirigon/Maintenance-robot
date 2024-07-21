@@ -245,7 +245,7 @@ function Map_area()
     end
 
     local function add_safe()
-        local relative_position = pos_in_front()
+        local relative_position = Relative_position
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
             print(relative_position[1],relative_position[2],relative_position[3])
