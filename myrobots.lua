@@ -267,6 +267,7 @@ function Map_area()
     local function advance_till_wall()
         while not robot.detect() do
             robot.forward()
+            print("going forward!")
             add_safe()
             for i=0,3 do
                 TurnDirection("left")
