@@ -249,11 +249,11 @@ function Map_area()
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
             print(relative_position[1],relative_position[2],relative_position[3])
-            os.sleep(1)
         end
         if In(relative_position,missing_positions) then
             local index = Index(relative_position,missing_positions)
             table.remove(missing_positions,index)
+            print(relative_position[1],relative_position[2],relative_position[3])
         end
     end
 
