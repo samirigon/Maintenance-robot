@@ -158,6 +158,9 @@ function Calculate_path(pos,valid_positions,walls)
         {current[1],current[2],current[3]+1},
         {current[1],current[2],current[3]-1}}
 
+
+        print(current[1],current[2],current[3])
+
         for i,neighbour in pairs(neighbors) do
             print(i)
             print(neighbour[1],neighbour[2],neighbour[3])
