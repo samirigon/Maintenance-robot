@@ -204,7 +204,7 @@ function Calculate_path(pos,valid_positions,walls)
         end
     end
 
-    for next,dummy in pairs(neighbours(valid_positions,current)) do
+    for dummy,next in pairs(neighbours(valid_positions,current)) do
         local new_cost = cost_so_far[current] + cost(valid_positions,current, next)
         if not In(next,cost_so_far) or new_cost < cost_so_far[next] then
             cost_so_far[next] = new_cost
