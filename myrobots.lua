@@ -158,9 +158,10 @@ function Calculate_path(pos,valid_positions,walls)
         {current[1],current[2],current[3]+1},
         {current[1],current[2],current[3]-1}}
 
-        for i,j in pairs(neighbors) do
-            if not In(j,valid_positions) then
-                local index = Index(j,valid_positions)
+        for i,neighbour in pairs(neighbors) do
+            print(neighbour[1],neighbour[2],neighbour[3])
+            if not In(neighbour,valid_positions) then
+                local index = Index(neighbour,valid_positions)
                 table.remove(neighbors,index)
             end
         end
