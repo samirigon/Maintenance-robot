@@ -127,7 +127,7 @@ function Travel_to(block)
 end
 
 
-function Calculate_path(pos,valid_positions,walls)
+function Calculate_path(pos,positions,walls)
     --given a mapped area calculates several points
     --to go from Relative_position to pos
     --and moves the robot.
@@ -198,8 +198,8 @@ function Calculate_path(pos,valid_positions,walls)
         end
     end
 
-    for dummy,next in pairs(neighbours(valid_positions,pos)) do
-        local new_cost = cost_so_far[current] + cost(valid_positions,current, next)
+    for dummy,next in pairs(neighbours(positions,pos)) do
+        local new_cost = cost_so_far[current] + cost(positions,current, next)
         if not In(next,cost_so_far) or new_cost < cost_so_far[next] then
             cost_so_far[next] = new_cost
             local priority = new_cost + heuristic(pos, next)
@@ -353,12 +353,12 @@ function Map_area()
         end
 
         local position = Calculate_closest_block(extremes)
-
-        local path = Calculate_path(position,valid_positions,walls) --devuelve todas las
+        local positions = TableConcat(valid_positions,missing_positions)
+        local path = Calculate_path(position,positions,walls) --devuelve todas las
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
             print(block[1],block[2],block[3])
-            assert(In(block,valid_positions),"Unknown block!")
+            assert(In(block,positions),"Unknown block!")
             Travel_to(block)
         end
         --ya hemos viajado al primer bloque de la siguiente fila.
