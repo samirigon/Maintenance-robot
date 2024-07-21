@@ -249,7 +249,7 @@ function Map_area()
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
             print(relative_position[1],relative_position[2],relative_position[3])
-            local h = io.read()
+            sleep(10)
         end
         if In(relative_position,missing_positions) then
             local index = Index(relative_position,missing_positions)
