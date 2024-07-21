@@ -149,21 +149,15 @@ function Calculate_path(pos,valid_positions,walls)
     end
 
 
-    local function neighbours(valid_positions,current)
-        --returns the blocks that are neighbours and their cost
-        --current is the location
+    local function neighbours(valid_positions,pos)
+        --returns the blocks that are neighbours
 
-        local neighbors = {{current[1]+1,current[2],current[3]},
-        {current[1]-1,current[2],current[3]},
-        {current[1],current[2],current[3]+1},
-        {current[1],current[2],current[3]-1}}
-
-
-        print(current[1],current[2],current[3])
+        local neighbors = {{pos[1]+1,pos[2],pos[3]},
+        {pos[1]-1,pos[2],pos[3]},
+        {pos[1],pos[2],pos[3]+1},
+        {pos[1],pos[2],pos[3]-1}}
 
         for i,neighbour in pairs(neighbors) do
-            print(i)
-            print(neighbour[1],neighbour[2],neighbour[3])
             if not In(neighbour,valid_positions) then
                 local index = Index(neighbour,valid_positions)
                 table.remove(neighbors,index)
@@ -204,7 +198,7 @@ function Calculate_path(pos,valid_positions,walls)
         end
     end
 
-    for dummy,next in pairs(neighbours(valid_positions,current)) do
+    for dummy,next in pairs(neighbours(valid_positions,pos)) do
         local new_cost = cost_so_far[current] + cost(valid_positions,current, next)
         if not In(next,cost_so_far) or new_cost < cost_so_far[next] then
             cost_so_far[next] = new_cost
