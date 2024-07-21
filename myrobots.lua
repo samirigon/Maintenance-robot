@@ -367,6 +367,8 @@ function Map_area()
         Travel_to(position)
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
+
+        missing_positions = {}
     end
 end
 
