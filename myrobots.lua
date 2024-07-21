@@ -216,7 +216,7 @@ end
 function Map_area()
     --maps an area and saves it in memory in order to find the best path
     --to go from one point to another
-    --uses depth first search
+    --uses extensive search
     local valid_positions = {}
     local missing_positions = {}
     local walls = {}
@@ -235,7 +235,7 @@ function Map_area()
         end
         return relative_position
     end
-    
+
 
     local function add_wall()
         local relative_position = pos_in_front()
@@ -248,6 +248,8 @@ function Map_area()
         local relative_position = pos_in_front()
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
+            print(relative_position)
+            local h = io.read()
         end
         if In(relative_position,missing_positions) then
             local index = Index(relative_position,missing_positions)
@@ -278,10 +280,10 @@ function Map_area()
     end
 
     advance_till_wall()
-    
+
     while Size(missing_positions) ~= 0 do
         local facing = Facing --registramos la dirección en la que mira.
-        
+
 
         local maxomin
         local axis
