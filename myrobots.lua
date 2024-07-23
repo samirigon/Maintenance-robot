@@ -283,6 +283,7 @@ function Map_area()
         end
     end
 
+    add_safe()
     advance_till_wall()
     print("no more going forward!")
 
@@ -360,7 +361,7 @@ function Map_area()
         end
 
         local position = Calculate_closest_block(extremes)
-        local positions = TableConcat(valid_positions,missing_positions)
+        --local positions = TableConcat(valid_positions,missing_positions)
         --[[local path = Calculate_path(position,positions,walls) --devuelve todas las
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
