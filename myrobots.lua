@@ -264,6 +264,7 @@ function Map_area()
         if not In(relative_position,missing_positions) then
             table.insert(missing_positions,relative_position)
             print("inserting",relative_position[1],relative_position[2],relative_position[3])
+            local h = io.read()
         end
     end
 
