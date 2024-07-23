@@ -376,9 +376,15 @@ function Map_area()
         print("Relative_position:")
         print(Relative_position[1],Relative_position[2],Relative_position[3])
 
-        print("positions list!")
+        print("missing positions list!")
 
-        for i,j in pairs(positions) do
+        for i,j in pairs(missing_positions) do
+            print(j[1],j[2],j[3])
+        end
+
+        print("valid positions list!")
+
+        for i,j in pairs(valid_positions) do
             print(j[1],j[2],j[3])
         end
         break
