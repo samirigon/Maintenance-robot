@@ -267,7 +267,7 @@ function Map_area()
     end
 
     local function advance_till_wall()
-        while not robot.detect() do
+        local function rotate()
             for i=1,4 do
                 TurnDirection("left")
                 if robot.detect() then
@@ -276,8 +276,12 @@ function Map_area()
                     add_missing()
                 end
             end
+        end
+        rotate()
+        while not robot.detect() do
             Move_forward(1)
             add_safe()
+            rotate()
         end
     end
 
