@@ -323,6 +323,8 @@ function Map_area()
         --primero metemos todos los valores del eje
         for i,j in pairs(missing_positions) do
             table.insert(axis_values,j[axis])
+            print("axis values!")
+            print(j[axis])
         end
         --calculamos el valor del extremo
         local row_value = maxomin(axis_values)
