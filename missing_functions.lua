@@ -89,3 +89,11 @@ function TableConcat(t1,t2)
     end
     return t1
 end
+
+function table.shallow_copy(t)
+    local t2 = {}
+    for k,v in pairs(t) do
+      t2[k] = v
+    end
+    return t2
+  end

@@ -224,7 +224,7 @@ function Map_area()
     local y = Relative_position[2]
 
     local function pos_in_front()
-        local relative_position = Relative_position
+        local relative_position = table.shallow_copy(Relative_position)
         if Facing == "east" then
             relative_position[1] = relative_position[1] + 1
         elseif Facing == "west" then
@@ -246,7 +246,7 @@ function Map_area()
     end
 
     local function add_safe()
-        local relative_position = Relative_position
+        local relative_position = table.shallow_copy(Relative_position)
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
             print(relative_position[1],relative_position[2],relative_position[3])
