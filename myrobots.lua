@@ -277,6 +277,7 @@ function Map_area()
                 if robot.detect() then
                     add_wall()
                 else
+                    print(Facing)
                     add_missing()
                 end
             end
