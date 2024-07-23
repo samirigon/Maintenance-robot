@@ -374,14 +374,12 @@ function Map_area()
         --ya puede empezar el bucle de nuevo.
 
         print(position[1],position[2],position[3])
-        print("Relative_position:")
-        print(Relative_position[1],Relative_position[2],Relative_position[3])
 
-        print("missing positions list!")
+        -- print("missing positions list!")
 
-        for i,j in pairs(missing_positions) do
-            print(j[1],j[2],j[3])
-        end
+        -- for i,j in pairs(missing_positions) do
+        --     print(j[1],j[2],j[3])
+        -- end
 
         print("valid positions list!")
 
