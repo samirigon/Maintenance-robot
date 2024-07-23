@@ -91,43 +91,37 @@ function Calculate_closest_block(blocks)
     return blocks[index]
 end
 
-function Travel_to(block)
-    --travels to given block in a straight line
-
-    local function go_to_relative_position(start_position,final_position)
-        local previously_facing = Facing
-        local x_difference = final_position[1] - start_position[1]
-        if x_difference < 0 then
-            TurnDirection("west")
-            Move_forward(math.abs(x_difference))
-        else
-            TurnDirection("east")
-            Move_forward(x_difference)
-        end
-
-        local y_difference = final_position[2] - start_position[2]
-        if y_difference < 0 then
-            while y_difference ~= 0 do
-                y_difference = y_difference+1
-            end
-        else
-            while y_difference ~= 0 do
-                y_difference = y_difference - 1
-            end
-        end
-
-        local z_difference = final_position[3] - start_position[3]
-        if z_difference < 0 then
-            TurnDirection("north")
-            Move_forward(math.abs(z_difference))
-        else
-            TurnDirection("south") --para el eje z positivo
-            Move_forward(z_difference)
-        end
-        TurnDirection(previously_facing)
+function Travel_to(start_position,final_position)
+    local previously_facing = Facing
+    local x_difference = final_position[1] - start_position[1]
+    if x_difference < 0 then
+        TurnDirection("west")
+        Move_forward(math.abs(x_difference))
+    else
+        TurnDirection("east")
+        Move_forward(x_difference)
     end
 
-    go_to_relative_position(Relative_position,block)
+    local y_difference = final_position[2] - start_position[2]
+    if y_difference < 0 then
+        while y_difference ~= 0 do
+            y_difference = y_difference+1
+        end
+    else
+        while y_difference ~= 0 do
+            y_difference = y_difference - 1
+        end
+    end
+
+    local z_difference = final_position[3] - start_position[3]
+    if z_difference < 0 then
+        TurnDirection("north")
+        Move_forward(math.abs(z_difference))
+    else
+        TurnDirection("south") --para el eje z positivo
+        Move_forward(z_difference)
+    end
+    TurnDirection(previously_facing)
 end
 
 
@@ -370,7 +364,9 @@ function Map_area()
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
             print(block[1],block[2],block[3])
-            Travel_to(block)
+            if block ~= Relative_position then
+                Travel_to(block)
+            end
         end
         
         --ya hemos viajado al primer bloque de la siguiente fila.
