@@ -282,7 +282,6 @@ function Map_area()
 
     add_safe()
     advance_till_wall()
-    print("no more going forward!")
 
     while Size(missing_positions) ~= 0 do
         local facing = Facing --registramos la dirección en la que mira.
@@ -357,27 +356,21 @@ function Map_area()
             table.insert(extremes,extreme)
         end
 
-        for i,j in pairs(extremes) do
-            print(j[1],j[2],j[3])
-        end
-
         local position = Calculate_closest_block(extremes)
         local positions = TableConcat(valid_positions,missing_positions)
-        -- local path = Calculate_path(position,positions,walls) --devuelve todas las
-        -- --posiciones a las que hemos de ir para llegar al objetivo
-        -- for dummy,block in pairs(path) do
-        --     print(block[1],block[2],block[3])
-        --     if block ~= Relative_position then
-        --         Travel_to(block)
-        --     end
-        -- end
-        
+        local path = Calculate_path(position,positions,walls) --devuelve todas las
+        --posiciones a las que hemos de ir para llegar al objetivo
+        for dummy,block in pairs(path) do
+            print(block[1],block[2],block[3])
+            if block ~= Relative_position then
+                Travel_to(block)
+            end
+        end
+
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
 
-        Travel_to(position)
 
-        print(position[1],position[2],position[3])
         break
     end
 end
