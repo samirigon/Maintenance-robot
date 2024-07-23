@@ -321,9 +321,9 @@ function Map_area()
         --queremos añadir las posiciones de la siguiente fila a next_row
         local axis_values = {}
         --primero metemos todos los valores del eje
+        print("axis values!")
         for i,j in pairs(missing_positions) do
             table.insert(axis_values,j[axis])
-            print("axis values!")
             print(j[axis])
         end
         --calculamos el valor del extremo
