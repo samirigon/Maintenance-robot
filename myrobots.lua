@@ -157,6 +157,10 @@ function Calculate_path(pos,positions,walls)
         {pos[1],pos[2],pos[3]+1},
         {pos[1],pos[2],pos[3]-1}}
 
+        print("neighbours!")
+        for i,j in pairs(neighbors) do
+            print(j[1],j[2],j[3])
+        end
 
         print("pos!: ",pos[1],pos[2],pos[3])
 
