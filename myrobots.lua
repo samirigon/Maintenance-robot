@@ -358,6 +358,10 @@ function Map_area()
             table.insert(extremes,extreme)
         end
 
+        for i,j in pairs(extremes) do
+            print(j[1],j[2],j[3])
+        end
+
         local position = Calculate_closest_block(extremes)
         local positions = TableConcat(valid_positions,missing_positions)
         local path = Calculate_path(position,positions,walls) --devuelve todas las
