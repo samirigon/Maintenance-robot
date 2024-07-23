@@ -261,7 +261,7 @@ function Map_area()
 
     local function add_missing()
         local relative_position = pos_in_front()
-        if not In(relative_position,missing_positions) then
+        if not In(relative_position,missing_positions) and not In(relative_position,valid_positions) then
             table.insert(missing_positions,relative_position)
             print("inserting",relative_position[1],relative_position[2],relative_position[3])
             local h = io.read()
@@ -271,7 +271,6 @@ function Map_area()
     local function advance_till_wall()
         while not robot.detect() do
             Move_forward(1)
-            print("going forward!")
             add_safe()
             for i=0,3 do
                 TurnDirection("left")
