@@ -252,7 +252,6 @@ function Map_area()
         local relative_position = table.shallow_copy(Relative_position)
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
-            print("inserting",relative_position[1],relative_position[2],relative_position[3])
         end
         if In(relative_position,missing_positions) then
             local index = Index(relative_position,missing_positions)
@@ -264,6 +263,7 @@ function Map_area()
         local relative_position = pos_in_front()
         if not In(relative_position,missing_positions) then
             table.insert(missing_positions,relative_position)
+            print("inserting",relative_position[1],relative_position[2],relative_position[3])
         end
     end
 
