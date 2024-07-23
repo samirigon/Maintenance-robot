@@ -376,17 +376,17 @@ function Map_area()
 
         print(position[1],position[2],position[3])
 
-        -- print("missing positions list!")
+        print("missing positions list!")
 
-        -- for i,j in pairs(missing_positions) do
-        --     print(j[1],j[2],j[3])
-        -- end
-
-        print("valid positions list!")
-
-        for i,j in pairs(valid_positions) do
+        for i,j in pairs(missing_positions) do
             print(j[1],j[2],j[3])
         end
+
+        -- print("valid positions list!")
+
+        -- for i,j in pairs(valid_positions) do
+        --     print(j[1],j[2],j[3])
+        -- end
         break
     end
 end

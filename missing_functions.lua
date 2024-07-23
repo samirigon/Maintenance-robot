@@ -84,10 +84,11 @@ function Min(t)
 end
 
 function TableConcat(t1,t2)
+    local t = table.shallow_copy(t1)
     for i=1,#t2 do
-        t1[#t1+1] = t2[i]
+        t[#t+1] = t2[i]
     end
-    return t1
+    return t
 end
 
 function table.shallow_copy(t)
