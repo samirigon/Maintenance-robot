@@ -1,6 +1,6 @@
 --Requiere de unos valores globales para:
     --Facing = "east"
-    --Relative_position = {0,0,0}
+    --Relative_position = {x,y,z}
 
 local robot = require("robot")
 local fs = require("filesystem")
@@ -372,6 +372,8 @@ function Map_area()
         --ya puede empezar el bucle de nuevo.
 
         print(position[1],position[2],position[3])
+        print("Relative_position:")
+        print(Relative_position[1],Relative_position[2],Relative_position[3])
 
         print("positions list!")
 
@@ -385,8 +387,7 @@ end
 
 Directions_dictionary = {["east"] = 1,["south"] = 2,["west"] = 3,["north"] = 4}
 Directions = {"east", "south", "west", "north"}
-Relative_position = {0,0,0}
 Facing = "west"
-Relative_position = {-9,69,-499}
+Relative_position = {-8,69,-499}
 
 Map_area()
