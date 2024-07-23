@@ -373,7 +373,6 @@ function Map_area()
         --ya puede empezar el bucle de nuevo.
 
         print(position[1],position[2],position[3])
-        break
     end
 end
 
