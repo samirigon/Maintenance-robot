@@ -263,8 +263,6 @@ function Map_area()
         local relative_position = pos_in_front()
         if not In(relative_position,missing_positions) and not In(relative_position,valid_positions) then
             table.insert(missing_positions,relative_position)
-            print("inserting",relative_position[1],relative_position[2],relative_position[3])
-            local h = io.read()
         end
     end
 
@@ -361,32 +359,20 @@ function Map_area()
         end
 
         local position = Calculate_closest_block(extremes)
-        --local positions = TableConcat(valid_positions,missing_positions)
-        --[[local path = Calculate_path(position,positions,walls) --devuelve todas las
+        local positions = TableConcat(valid_positions,missing_positions)
+        local path = Calculate_path(position,positions,walls) --devuelve todas las
         --posiciones a las que hemos de ir para llegar al objetivo
         for dummy,block in pairs(path) do
             print(block[1],block[2],block[3])
             assert(In(block,positions),"Unknown block!")
             Travel_to(block)
         end
-        ]]--
-        --Travel_to(position)
+        
+        Travel_to(position)
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
 
         print(position[1],position[2],position[3])
-
-        print("missing positions list!")
-
-        for i,j in pairs(missing_positions) do
-            print(j[1],j[2],j[3])
-        end
-
-        -- print("valid positions list!")
-
-        -- for i,j in pairs(valid_positions) do
-        --     print(j[1],j[2],j[3])
-        -- end
         break
     end
 end
