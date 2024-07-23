@@ -160,9 +160,11 @@ function Calculate_path(pos,positions,walls)
             if not In(neighbour,valid_positions) then
                 local index = Index(neighbour,neighbors)
                 table.remove(neighbors,index)
+            else print(neighbour)
             end
+            
         end
-
+        local h = io.read()
         return neighbors
     end
 
