@@ -91,7 +91,8 @@ function Calculate_closest_block(blocks)
     return blocks[index]
 end
 
-function Travel_to(start_position,final_position)
+function Travel_to(final_position)
+    local start_position = Relative_position
     local previously_facing = Facing
     local x_difference = final_position[1] - start_position[1]
     if x_difference < 0 then
@@ -362,17 +363,19 @@ function Map_area()
 
         local position = Calculate_closest_block(extremes)
         local positions = TableConcat(valid_positions,missing_positions)
-        local path = Calculate_path(position,positions,walls) --devuelve todas las
-        --posiciones a las que hemos de ir para llegar al objetivo
-        for dummy,block in pairs(path) do
-            print(block[1],block[2],block[3])
-            if block ~= Relative_position then
-                Travel_to(block)
-            end
-        end
+        -- local path = Calculate_path(position,positions,walls) --devuelve todas las
+        -- --posiciones a las que hemos de ir para llegar al objetivo
+        -- for dummy,block in pairs(path) do
+        --     print(block[1],block[2],block[3])
+        --     if block ~= Relative_position then
+        --         Travel_to(block)
+        --     end
+        -- end
         
         --ya hemos viajado al primer bloque de la siguiente fila.
         --ya puede empezar el bucle de nuevo.
+
+        Travel_to(position)
 
         print(position[1],position[2],position[3])
         break
