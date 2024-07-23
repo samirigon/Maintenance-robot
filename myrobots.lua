@@ -156,6 +156,8 @@ function Calculate_path(pos,positions,walls)
         {pos[1],pos[2],pos[3]+1},
         {pos[1],pos[2],pos[3]-1}}
 
+
+        print("pos!: ",pos[1],pos[2],pos[3])
         for i,neighbour in pairs(neighbors) do
             if not In(neighbour,valid_positions) then
                 local index = Index(neighbour,neighbors)
