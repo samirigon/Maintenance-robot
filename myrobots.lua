@@ -43,7 +43,10 @@ function TurnDirection(direction)
     local final_direction= Directions_dictionary[direction]
     local number_of_turns = final_direction - actual_direction
 
-    if number_of_turns > 0 then
+
+    if number_of_turns == 3 then
+        robot.turnLeft() --este --> norte
+    elseif number_of_turns > 0 then
         while number_of_turns ~= 0 do
             robot.turnRight()
             number_of_turns = number_of_turns -1
@@ -160,7 +163,7 @@ function Calculate_path(pos,positions,walls)
 
         for i,neighbour in pairs(neighbors) do
             if not In(neighbour,valid_positions) then
-                local index = Index(neighbour,valid_positions)
+                local index = Index(neighbour,neighbors)
                 table.remove(neighbors,index)
             end
         end
@@ -249,12 +252,10 @@ function Map_area()
         local relative_position = table.shallow_copy(Relative_position)
         if not In(relative_position,valid_positions) then
             table.insert(valid_positions,relative_position)
-            print(relative_position[1],relative_position[2],relative_position[3])
         end
         if In(relative_position,missing_positions) then
             local index = Index(relative_position,missing_positions)
             table.remove(missing_positions,index)
-            print(relative_position[1],relative_position[2],relative_position[3])
         end
     end
 
