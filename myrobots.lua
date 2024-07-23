@@ -150,6 +150,7 @@ function Calculate_path(pos,positions,walls)
 
     local function neighbours(valid_positions,pos)
         --returns the blocks that are neighbours
+        --pos is the goal position
 
         local neighbors = {{pos[1]+1,pos[2],pos[3]},
         {pos[1]-1,pos[2],pos[3]},
@@ -158,6 +159,7 @@ function Calculate_path(pos,positions,walls)
 
 
         print("pos!: ",pos[1],pos[2],pos[3])
+
         for i,neighbour in pairs(neighbors) do
             if not In(neighbour,valid_positions) then
                 local index = Index(neighbour,neighbors)
@@ -287,7 +289,7 @@ function Map_area()
     add_safe()
     advance_till_wall()
 
-    while Size(missing_positions) ~= 0 do
+    while table.size(missing_positions) ~= 0 do
         local facing = Facing --registramos la dirección en la que mira.
 
 
