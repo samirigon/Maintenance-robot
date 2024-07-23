@@ -232,7 +232,7 @@ function Map_area()
             relative_position[1] = relative_position[1] + 1
         elseif Facing == "west" then
             relative_position[1] = relative_position[1] - 1
-        elseif Facing == "south " then
+        elseif Facing == "south" then
             relative_position[3] = relative_position[3] + 1
         elseif Facing == "north" then
             relative_position[3] = relative_position[3] - 1
