@@ -315,6 +315,9 @@ function Map_area()
         --queremos añadir las posiciones de la siguiente fila a next_row
         local axis_values = {}
         --primero metemos todos los valores del eje
+        for i,j in pairs(missing_positions) do
+            table.insert(axis_values,j[axis])
+        end
         --calculamos el valor del extremo
         local row_value = maxomin(axis_values)
         --y metemos todos los bloques que ha de recorrer en la lista.
